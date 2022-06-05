@@ -112,11 +112,5 @@ function endgame() {
     text("Click on the screen to restart!", 100, 500, "fill");
 }
 
-function collision() {
-    if (player.position.x > obA[2].x && player.position.x < obA[3].x && player.position.y
-        > obA[1].y && player.position.y < obA[1].y) {
-        console.log('collision')
 
-    }
-}
 

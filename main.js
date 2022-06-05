@@ -41,9 +41,6 @@ function draw() {
         gamescreen();
     }
 
-    if (player.x + player.width >= object1.x && player.y - player.height <= object1.height) {
-        console.log("hi");
-    }
     requestAnimationFrame(draw);
 }
 
