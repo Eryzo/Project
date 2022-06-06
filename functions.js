@@ -90,6 +90,8 @@ class Object2 {
     draw1() {
         fill("white");
         rect(this.position.x, this.position.y, this.width, this.height, "fill");
+
+        // Collision detection
         if (player.position.x + player.width >= this.position.x && //left and right side
             player.position.x <= this.position.x + this.width &&
             player.position.y + player.height >= this.position.y && //top and bottom

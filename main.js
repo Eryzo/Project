@@ -1,4 +1,4 @@
-// Square game by Sami
+// Geometry square by Sami
 
 // Set canvas
 let cnv = document.getElementById("canvas");
@@ -11,17 +11,6 @@ let player = new Player();
 let object1 = new Object1();
 let object2 = new Object2();
 let score = 0;
-
-// let score = 0;
-// let scoreinterval;
-
-// function score() {
-//     score += 65
-// }
-
-// function sinterval() {
-//     scoreinterval = setInterval(score, 5000);
-// }
 
 // Arrays 
 let obA = [];
@@ -54,7 +43,6 @@ function draw() {
     } else if (state === "screen2") {
         gamescreen();
     }
-
     score1();
 
     requestAnimationFrame(draw);
