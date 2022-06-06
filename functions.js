@@ -42,11 +42,23 @@ class Object1 {
 
         }
 
+        // Speed
+        this.speed = {
+            x: 5,
+            y: 5
+        }
+
     }
 
     draw1() {
         fill("white");
         rect(this.position.x--, this.position.y, this.width, this.height, "fill");
+        if (player.position.x + player.width >= this.position.x && //left and right side
+            player.position.x <= this.position.x + this.width &&
+            player.position.y + player.height >= this.position.y && //top and bottom
+            player.position.y <= this.position.y + this.height) {
+            endgame(); clearInterval();
+        }
     }
 
 }
@@ -70,9 +82,15 @@ class Object2 {
     draw1() {
         fill("white");
         rect(this.position.x--, this.position.y, this.width, this.height, "fill");
+        if (player.position.x + player.width >= this.position.x && //left and right side
+            player.position.x <= this.position.x + this.width &&
+            player.position.y + player.height >= this.position.y && //top and bottom
+            player.position.y <= this.position.y + this.height) {
+            endgame(); clearInterval();
+        }
     }
-
 }
+
 
 // Start screen
 function startscreen() {
@@ -80,7 +98,14 @@ function startscreen() {
     fill("white");
     font("44px Verdana");
     text("Square game", 250, 300, "fill");
-    text("Click on the screen to start!", 100, 500, "fill");
+    text("Click on the screen to start!", 100, 450, "fill");
+    font("24px Verdana");
+    text("When you lose the game, it will bring you back to this screen!", 30, 550, "fill");
+}
+
+// End game function
+function endgame() {
+    addEventListener("click", location.reload());
 }
 
 
@@ -100,17 +125,6 @@ function gamescreen() {
     for (object2 of obA2) {
         object2.draw1();
     }
-    collision();
+
 }
-
-// End screen
-function endgame() {
-    background("black");
-    fill("white");
-    font("44px Verdana");
-    text("Game Over!", 250, 300, "fill");
-    text("Click on the screen to restart!", 100, 500, "fill");
-}
-
-
 

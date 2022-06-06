@@ -1,3 +1,5 @@
+// Square game by Sami
+
 // Set canvas
 let cnv = document.getElementById("canvas");
 let ctx = cnv.getContext("2d");
@@ -42,6 +44,7 @@ function draw() {
     }
 
     requestAnimationFrame(draw);
+
 }
 
 
