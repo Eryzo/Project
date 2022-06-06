@@ -42,17 +42,17 @@ class Object1 {
 
         }
 
-        // Speed
         this.speed = {
-            x: 5,
-            y: 5
+            x: 1
         }
 
     }
 
     draw1() {
         fill("white");
-        rect(this.position.x--, this.position.y, this.width, this.height, "fill");
+        rect(this.position.x, this.position.y, this.width, this.height, "fill");
+
+        // Collision detection
         if (player.position.x + player.width >= this.position.x && //left and right side
             player.position.x <= this.position.x + this.width &&
             player.position.y + player.height >= this.position.y && //top and bottom
@@ -61,6 +61,10 @@ class Object1 {
         }
     }
 
+    move() {
+        this.position.x += -this.speed.x;
+        this.speed.x += 0.01;
+    }
 }
 
 class Object2 {
@@ -73,15 +77,19 @@ class Object2 {
         // Coordinate values
         this.position = {
             x: randomInt(870, 1000),
-            y: 490
+            y: 480
 
+        }
+
+        this.speed = {
+            x: 1
         }
 
     }
 
     draw1() {
         fill("white");
-        rect(this.position.x--, this.position.y, this.width, this.height, "fill");
+        rect(this.position.x, this.position.y, this.width, this.height, "fill");
         if (player.position.x + player.width >= this.position.x && //left and right side
             player.position.x <= this.position.x + this.width &&
             player.position.y + player.height >= this.position.y && //top and bottom
@@ -89,15 +97,22 @@ class Object2 {
             endgame(); clearInterval();
         }
     }
+    move() {
+        this.position.x -= this.speed.x;
+        this.speed.x += 0.01;
+    }
 }
 
+function score1() {
+    score += 1;
+}
 
 // Start screen
 function startscreen() {
     background("black");
     fill("white");
     font("44px Verdana");
-    text("Square game", 250, 300, "fill");
+    text("Geometry Square", 200, 300, "fill");
     text("Click on the screen to start!", 100, 450, "fill");
     font("24px Verdana");
     text("When you lose the game, it will bring you back to this screen!", 30, 550, "fill");
@@ -115,15 +130,19 @@ function gamescreen() {
     // Fill canvas
 
     background("black");
+    fill("white");
+    text(score, 700, 50, "fill");
     ground(0, 550, "lightblue");
 
     // Draw the object from the array, looping the oject so it draws it at a certain set interval.
     player.draw1();
     for (object1 of obA) {
         object1.draw1();
+        object1.move();
     }
     for (object2 of obA2) {
         object2.draw1();
+        object2.move();
     }
 
 }

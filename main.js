@@ -10,6 +10,18 @@ cnv.height = 600;
 let player = new Player();
 let object1 = new Object1();
 let object2 = new Object2();
+let score = 0;
+
+// let score = 0;
+// let scoreinterval;
+
+// function score() {
+//     score += 65
+// }
+
+// function sinterval() {
+//     scoreinterval = setInterval(score, 5000);
+// }
 
 // Arrays 
 let obA = [];
@@ -25,14 +37,14 @@ function addObs() {
     obA.push(new Object1);
 }
 
-setInterval(addObs, 5200);
+setInterval(addObs, 1200);
 
 // Pushes the horizontal object into the array 
 function addObs2() {
     obA2.push(new Object2);
 }
 
-setInterval(addObs2, 5200);
+setInterval(addObs2, 1200);
 
 // Draw animation
 requestAnimationFrame(draw);
@@ -42,6 +54,8 @@ function draw() {
     } else if (state === "screen2") {
         gamescreen();
     }
+
+    score1();
 
     requestAnimationFrame(draw);
 
