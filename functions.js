@@ -122,7 +122,7 @@ function startscreen() {
 
 // End game function
 function endgame() {
-    addEventListener("click", location.reload());
+    location.reload();
 }
 
 
